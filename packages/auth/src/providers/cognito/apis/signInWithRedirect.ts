@@ -81,6 +81,7 @@ const oauthSignIn = async ({
 	options?: SignInWithRedirectInput['options'];
 }) => {
 	const { domain, redirectSignIn, responseType, scopes } = oauthConfig;
+	console.log('[ADDED CONSOLE FOR DEBUG] INITATING OAUTH WITH GOOGLE', domain, redirectSignIn, responseType, scopes);
 	const { loginHint, lang, nonce } = options ?? {};
 	const randomState = generateState();
 
@@ -134,6 +135,7 @@ const oauthSignIn = async ({
 		{};
 
 	try {
+		console.log('[ADDED CONSOLE FOR DEBUG]', type,error,url);
 		if (type === 'error') {
 			throw createOAuthError(String(error));
 		}
